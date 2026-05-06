@@ -1,0 +1,3 @@
+(defpoll currentBLuetooth :interval "1s" "bluetoothctl info | grep 'name' | cut -d ' ' -f 2-")
+(defpoll bluetoothFirstDevice :interval "1s" "bluetoothctl devices | awk '{print $3,$4,$5}'|sed -n '1p'")
+(defpoll bluetoothSecondDevice :interval "1s" "bluetoothctl devices |0 awk '{print $3,$4,$5}'|sed -n '2p'")
