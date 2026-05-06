@@ -1,3 +1,18 @@
-(defpoll currentBLuetooth :interval "1s" "bluetoothctl info | grep 'name' | cut -d ' ' -f 2-")
-(defpoll bluetoothFirstDevice :interval "1s" "bluetoothctl devices | awk '{print $3,$4,$5}'|sed -n '1p'")
-(defpoll bluetoothSecondDevice :interval "1s" "bluetoothctl devices |0 awk '{print $3,$4,$5}'|sed -n '2p'")
+(defpoll currentBluetooth :interval "1s" "bluetoothctl info | grep  'Name' | cut -d '' -f 2-")
+(defpoll bluetoothFirstDevice :interval "1s" "bluetoothctl devices | awk {print $3,$4,$5}'|sed -n '1p'")
+(defpoll bluetoothSecondDevice :interval "1s" "bluetoothctl devices | awk '{print $3,$4,$5}'|sed -n '2p'")
+
+:widget bluetooth
+(defwidget bluetoothWidget []
+	(box :class "optionbox"
+	     :orientation "v"
+	(label :text "hello World!")))
+
+:window Bluetooth
+(defwindow bluetooth
+	:geometry (geometry :x "10%"
+			    :y "-7%"
+		            :width "18%"
+  		            :height "47%"
+			    :anchor "bottom center")
+	(bluetoothWidget))
